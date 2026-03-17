@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | BlueLens Analytics — Christopher L. Coffey</title>
+  <meta name="description" content="Christopher L. Coffey — Project Maven Principal Lead, NGA GS-14, JSOC embedded, TS/SCI with polygraph. 30 years geospatial intelligence. Computer vision and production ML at operational scale. Principal of BlueLens Analytics, cleared small business." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root{--bg:#06090f;--bg2:#0a1018;--bg3:#0e1825;--accent:#1a6fff;--accent2:#0d4fd4;--hot:#ff4d1a;--green:#22c55e;--dim:#304560;--muted:#7a98b8;--text:#cce0f5;--white:#eef6ff;--border:rgba(26,111,255,0.15);--glow:rgba(26,111,255,0.10);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:64px;background:rgba(6,9,15,0.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+    .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.1em;color:var(--white);text-decoration:none;}
+    .nav-logo span{color:var(--accent);}
+    .nav-links{display:flex;align-items:center;gap:32px;list-style:none;}
+    .nav-links a{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--white);}
+    .nav-cta{color:var(--accent)!important;border:1px solid var(--accent);padding:7px 14px;}
+    .nav-cta:hover{background:var(--accent)!important;color:var(--white)!important;}
+
+    .page-hero{position:relative;padding:130px 52px 80px;border-bottom:1px solid var(--border);overflow:hidden;}
+    .pg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(26,111,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(26,111,255,0.04) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 80% 80% at 20% 50%,black 20%,transparent 80%);}
+    .pg-glow{position:absolute;top:-150px;left:-150px;width:600px;height:600px;background:radial-gradient(circle,rgba(26,111,255,0.07) 0%,transparent 70%);pointer-events:none;}
+    .ph-content{position:relative;max-width:760px;}
+    .eyebrow{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+    .eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--accent);}
+    .page-hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,7vw,6.5rem);letter-spacing:0.02em;color:var(--white);line-height:0.92;margin-bottom:24px;}
+    .page-hero h1 em{font-style:normal;color:var(--accent);}
+    .ph-sub{font-size:1rem;color:var(--muted);line-height:1.88;max-width:600px;}
+
+    .badge-row{background:var(--bg2);border-bottom:1px solid var(--border);padding:18px 52px;display:flex;gap:10px;flex-wrap:wrap;}
+    .badge{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);border:1px solid var(--border);background:var(--glow);padding:5px 11px;}
+    .badge.hot{color:var(--hot);border-color:rgba(255,77,26,0.3);background:rgba(255,77,26,0.05);}
+    .badge.green{color:var(--green);border-color:rgba(34,197,94,0.25);background:rgba(34,197,94,0.05);}
+
+    .content-wrap{max-width:1240px;margin:0 auto;padding:80px 52px;display:grid;grid-template-columns:1fr 310px;gap:72px;align-items:start;}
+
+    .bio-section{margin-bottom:60px;padding-bottom:60px;border-bottom:1px solid var(--border);}
+    .bio-section:last-child{border-bottom:none;margin-bottom:0;}
+    .sec-label{font-family:'DM Mono',monospace;font-size:0.64rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+    .sec-label::before{content:'';width:18px;height:1px;background:var(--accent);}
+    .bio-section h2{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:0.03em;color:var(--white);margin-bottom:18px;}
+    .bio-section p{font-size:0.92rem;color:var(--muted);line-height:1.88;margin-bottom:14px;}
+    .bio-section p:last-child{margin-bottom:0;}
+    .bio-section p strong{color:var(--text);font-weight:400;}
+
+    .metrics-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin:28px 0;}
+    .mc{background:var(--bg2);padding:18px;}
+    .mc-num{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:var(--white);line-height:1;}
+    .mc-num span{color:var(--accent);font-size:1rem;}
+    .mc-label{font-family:'DM Mono',monospace;font-size:0.54rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:4px;}
+
+    .tech-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:20px;}
+    .tc{background:var(--bg);padding:16px 18px;}
+    .tc-label{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);margin-bottom:8px;}
+    .tc-val{font-size:0.84rem;color:var(--muted);line-height:1.65;}
+
+    .timeline{display:flex;flex-direction:column;margin-top:12px;}
+    .tl-item{display:grid;grid-template-columns:88px 1fr;gap:20px;position:relative;padding-bottom:28px;}
+    .tl-item::before{content:'';position:absolute;left:80px;top:7px;bottom:0;width:1px;background:var(--border);}
+    .tl-item:last-child::before{display:none;}
+    .tl-year{font-family:'DM Mono',monospace;font-size:0.63rem;letter-spacing:0.1em;color:var(--dim);padding-top:2px;text-align:right;}
+    .tl-dot{position:absolute;left:76px;top:4px;width:9px;height:9px;background:var(--accent);border-radius:50%;}
+    .tl-dot.hot{background:var(--hot);}
+    .tl-title{font-weight:500;font-size:0.9rem;color:var(--white);margin-bottom:4px;}
+    .tl-body{font-size:0.82rem;color:var(--muted);line-height:1.65;}
+
+    .proj-list{display:flex;flex-direction:column;gap:12px;margin-top:12px;}
+    .proj-card{border:1px solid var(--border);background:var(--bg2);padding:22px 26px;transition:border-color 0.2s,background 0.2s;}
+    .proj-card:hover{border-color:rgba(26,111,255,0.3);background:var(--bg3);}
+    .proj-tag{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:7px;}
+    .proj-title{font-weight:500;font-size:0.92rem;color:var(--white);margin-bottom:7px;}
+    .proj-body{font-size:0.83rem;color:var(--muted);line-height:1.7;}
+
+    .sidebar{position:sticky;top:84px;display:flex;flex-direction:column;gap:18px;}
+    .sc{border:1px solid var(--border);background:var(--bg2);padding:22px;}
+    .sc-label{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);margin-bottom:14px;}
+    .ss{display:flex;flex-direction:column;padding:11px 0;border-bottom:1px solid var(--border);}
+    .ss:last-child{border-bottom:none;}
+    .ss-num{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;color:var(--white);line-height:1;}
+    .ss-label{font-family:'DM Mono',monospace;font-size:0.54rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:2px;}
+    .sl{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);text-decoration:none;transition:color 0.2s;}
+    .sl:last-child{border-bottom:none;}
+    .sl-icon{width:28px;height:28px;background:var(--glow);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:0.75rem;flex-shrink:0;}
+    .sl-text{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
+    .sl:hover .sl-text{color:var(--accent);}
+    .btn-primary{display:inline-block;background:var(--accent);color:var(--white);font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;padding:13px 18px;transition:background 0.2s;width:100%;text-align:center;}
+    .btn-primary:hover{background:var(--accent2);}
+
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:28px 52px;display:flex;align-items:center;justify-content:space-between;}
+    .footer-logo{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:0.08em;color:var(--muted);}
+    .footer-logo span{color:var(--accent);}
+    .footer-copy{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.1em;color:var(--dim);}
+    .footer-links{display:flex;gap:24px;list-style:none;}
+    .footer-links a{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color 0.2s;}
+    .footer-links a:hover{color:var(--accent);}
+
+    @media(max-width:1024px){.content-wrap{grid-template-columns:1fr;padding:48px 24px;gap:48px;}.sidebar{position:static;}.tech-grid{grid-template-columns:1fr;}.metrics-row{grid-template-columns:1fr 1fr;}}
+    @media(max-width:768px){nav{padding:0 20px;}.page-hero{padding:110px 20px 60px;}.badge-row{padding:14px 20px;}.tl-item{grid-template-columns:68px 1fr;}.tl-item::before{left:60px;}.tl-dot{left:56px;}footer{flex-direction:column;gap:14px;text-align:center;}}
+    .fade-up{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
+    .fade-up.in{opacity:1;transform:none;}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Blue<span>Lens</span> Analytics</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about.html" class="active">About</a></li>
+    <li><a href="/#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="pg-grid"></div>
+  <div class="pg-glow"></div>
+  <div class="ph-content fade-up">
+    <p class="eyebrow">Principal Analyst — BlueLens Analytics</p>
+    <h1>Christopher L.<br /><em>Coffey</em></h1>
+    <p class="ph-sub">Project Maven Principal Lead. NGA GS-14 Senior Analyst. JSOC embedded. Thirty years of operational geospatial intelligence experience — from digitizing paper maps in 1993 to deploying production computer vision systems at national security scale. Now operating as a cleared small business available for subcontracting, teaming, and senior consulting engagements.</p>
+  </div>
+</div>
+
+<div class="badge-row">
+  <span class="badge hot">Project Maven — Principal Lead</span>
+  <span class="badge hot">TS/SCI with Polygraph</span>
+  <span class="badge">NGA — GS-14 · 11 Years</span>
+  <span class="badge">JSOC / SOCOM Embedded</span>
+  <span class="badge">AFRICOM J2 — RAF Molesworth</span>
+  <span class="badge">GISP Certified</span>
+  <span class="badge">GEOINT Professional (GA-II)</span>
+  <span class="badge">M.A. Geography — AppState</span>
+  <span class="badge">NGA Certified Instructor</span>
+  <span class="badge green">OSGeo Foundation Member</span>
+  <span class="badge green">Cleared Small Business Principal</span>
+</div>
+
+<div class="content-wrap">
+  <div>
+
+    <div class="bio-section fade-up">
+      <div class="sec-label">Why BlueLens Analytics</div>
+      <h2>The Case for a Lean Cleared Sub</h2>
+      <p>Prime contractors win the vehicles. Then they need cleared senior people to actually do the work. The problem: truly senior cleared geospatial AI talent is rare, expensive as a full-time hire, and often unavailable on the timelines task orders demand.</p>
+      <p><strong>BlueLens Analytics exists to solve that problem.</strong> A cleared small business with a single principal analyst who brings Project Maven credentials, 30 years of domain expertise, and production ML engineering capability — available for subcontracting and teaming without the overhead of a permanent hire, the delays of recruiting, or the risk of onboarding someone who hasn't actually done this work in operational environments.</p>
+      <p>The geographic footprint helps too. BlueLens Analytics operates from the NC Sandhills — Moore County, within the Fort Liberty / SOCOM corridor. JGASS II work happens in North Carolina. That's not a coincidence.</p>
+      <div class="metrics-row">
+        <div class="mc"><div class="mc-num">96<span>%</span></div><div class="mc-label">Production CV Accuracy</div></div>
+        <div class="mc"><div class="mc-num">500<span>+</span></div><div class="mc-label">GB Daily Pipeline</div></div>
+        <div class="mc"><div class="mc-num">200<span>+</span></div><div class="mc-label">Concurrent Users Served</div></div>
+        <div class="mc"><div class="mc-num">6<span>hr</span></div><div class="mc-label">Detection Latency (from 48)</div></div>
+      </div>
+    </div>
+
+    <div class="bio-section fade-up">
+      <div class="sec-label" style="color:var(--hot)"><span style="width:18px;height:1px;background:var(--hot);display:block"></span>Flagship Credential</div>
+      <h2>Project Maven — Principal Lead</h2>
+      <p>Project Maven launched in 2017 as the Department of Defense's primary initiative to apply machine learning to satellite imagery and full-motion video — closing the processing gap as ISR data volumes outpaced human analyst capacity. Chris Coffey served as a Principal Lead operating from within NGA as the primary GEOINT intelligence partner for the program.</p>
+      <p>The core work: <strong>developing and operationally deploying computer vision algorithms on satellite imagery and multi-sensor data streams</strong>, with emphasis on improving detection accuracy and reducing false positives to thresholds reliable enough for live mission use. Close collaboration across DoD components, combatant commands, and the broader IC — operating under explicit mandate to move at commercial AI development speed rather than traditional defense acquisition timelines.</p>
+      <p>The production systems built for Maven — automated change detection, multi-sensor fusion, and high-throughput ML pipelines — directly underpin the methodologies BlueLens Analytics brings to subcontracting engagements today.</p>
+    </div>
+
+    <div class="bio-section fade-up">
+      <div class="sec-label">Government Career</div>
+      <h2>NGA — 11 Years · GS-14</h2>
+      <p>From 2011 to 2022, Chris served as a Senior Geospatial Intelligence Analyst and Software Developer at the National Geospatial-Intelligence Agency. His NGA career included NGA Targeting, embedded deployment as <strong>AFRICOM J2 at RAF Molesworth</strong> in the UK, and embedded technical support to JSOC and Tier 1 special operations units in Central Africa.</p>
+      <p>He trained at CIA's training facility and Academi. He holds a TS/SCI clearance with full scope polygraph — Active.</p>
+      <p>As a technical leader at NGA, he led development teams building enterprise GEOINT platforms serving <strong>200+ concurrent users</strong> across high-security environments — delivered six months ahead of a two-year schedule. He built Python automation frameworks reducing data preparation time by 60% and increasing production velocity by 250%. He was a <strong>Certified Instructor at the National Geospatial-Intelligence College</strong> teaching ML, Python, remote sensing, and database design.</p>
+    </div>
+
+    <div class="bio-section fade-up">
+      <div class="sec-label">Technical Stack</div>
+      <h2>Production Capability — Full Stack</h2>
+      <p>Every item below has been used in production operational environments, not laboratory or research settings.</p>
+      <div class="tech-grid">
+        <div class="tc"><div class="tc-label">Machine &amp; Deep Learning</div><div class="tc-val">PyTorch, TensorFlow/Keras, Vision Transformers (ViT), Semantic Segmentation, Object Detection, Transfer Learning, A/B Testing, Model Evaluation Frameworks</div></div>
+        <div class="tc"><div class="tc-label">Computer Vision &amp; Remote Sensing</div><div class="tc-val">SAR (Sentinel-1), Multispectral (Landsat, Sentinel-2, HLS), Thermal (VIIRS/MODIS), FMV, Change Detection, Feature Extraction, Multi-Sensor Fusion, Time Series</div></div>
+        <div class="tc"><div class="tc-label">MLOps &amp; Production Systems</div><div class="tc-val">GCP, AWS, Google Colab, Docker, Git/GitHub, CI/CD Pipelines, Model Deployment, Performance Monitoring, Automated ETL, Parallel Processing, API Development</div></div>
+        <div class="tc"><div class="tc-label">Programming &amp; Data Science</div><div class="tc-val">Python (Expert), SQL, JavaScript, Pandas, NumPy, GeoPandas, Scikit-learn, OpenCV, Matplotlib, Seaborn, Jupyter Notebooks</div></div>
+        <div class="tc"><div class="tc-label">Open-Source Geospatial (Primary)</div><div class="tc-val">QGIS (Expert), PostGIS, GeoServer, Google Earth Engine, GDAL, Rasterio, Folium, GeoPandas, MapLibre — OGC standards throughout. OSGeo Foundation member. ESRI environments supported when required.</div></div>
+        <div class="tc"><div class="tc-label">Intelligence Tradecraft</div><div class="tc-val">GEOINT, OSINT automation, HUMINT integration, Pattern-of-Life, All-Source Fusion, Targeting, Damage Assessment, Executive Briefing Products</div></div>
+      </div>
+    </div>
+
+    <div class="bio-section fade-up">
+      <div class="sec-label">Selected Projects</div>
+      <h2>Demonstrated Results</h2>
+      <div class="proj-list">
+        <div class="proj-card">
+          <div class="proj-tag">Computer Vision · Foundation Models · HLS Imagery</div>
+          <div class="proj-title">Burn Scar Detection — Prithvi Vision Transformer</div>
+          <p class="proj-body">Deployed NASA-IBM Prithvi ViT foundation model for semantic segmentation of burn scars across multiple geographic regions and vegetation types. 96% overall accuracy, 73% IoU on 30m multispectral HLS data. Comparative evaluation of U-Net, SegFormer, and ViT demonstrated superior transformer performance. Validated against traditional spectral index methods (NBR).</p>
+        </div>
+        <div class="proj-card">
+          <div class="proj-tag">SAR · Multi-Sensor Fusion · Conflict Monitoring</div>
+          <div class="proj-title">Infrastructure Damage Assessment — Conflict Zones</div>
+          <p class="proj-body">Comprehensive methodology for detecting and classifying infrastructure damage using SAR coherence, optical, and thermal fusion. 85%+ classification accuracy across 10,000+ structures. 90% reduction in manual analysis time versus traditional methods. Evidence documentation protocols adopted by humanitarian monitoring organizations.</p>
+        </div>
+        <div class="proj-card">
+          <div class="proj-tag">MLOps · Cloud · Real-Time Processing</div>
+          <div class="proj-title">Real-Time Satellite Data Processing Pipeline</div>
+          <p class="proj-body">Cloud-based automated acquisition, preprocessing, and analysis pipeline ingesting from NASA Earthdata, ESA Copernicus, and commercial providers. 500+ GB daily processing. Event detection latency reduced from 48 hours to under 6 hours via incremental updates and parallel processing on GCP.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bio-section fade-up">
+      <div class="sec-label">Career Timeline</div>
+      <h2>30 Years in the Discipline</h2>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-year">1993</div>
+          <div class="tl-dot"></div>
+          <div><div class="tl-title">University of Georgia — GIS Lab · Dr. Roy Welch</div><div class="tl-body">B.A. Geography, GIS &amp; Remote Sensing. Early training under one of America's founding figures in geospatial science.</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2003–09</div>
+          <div class="tl-dot"></div>
+          <div><div class="tl-title">Co-Founder &amp; VP — RCB Development Group · NC GC #100335</div><div class="tl-body">Co-founded sustainable construction firm. Applied GIS and BIM to site selection and project management across 15+ concurrent developments.</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">M.A.</div>
+          <div class="tl-dot"></div>
+          <div><div class="tl-title">M.A. Geography — Appalachian State University</div><div class="tl-body">Geospatial Modeling focus. GISP and GEOINT Professional certifications obtained. Thesis on geospatial modeling of water quality impacts.</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2011</div>
+          <div class="tl-dot"></div>
+          <div><div class="tl-title">National Geospatial-Intelligence Agency — GS-14 Senior Analyst</div><div class="tl-body">NGA Targeting and Software Developer. Began 11-year intelligence community career. Certified instructor at NGC.</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2014+</div>
+          <div class="tl-dot"></div>
+          <div><div class="tl-title">AFRICOM J2 — RAF Molesworth, UK (Embedded)</div><div class="tl-body">Embedded geospatial analyst supporting Africa Command J2 at RAF Molesworth. Combined intelligence operations.</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2016+</div>
+          <div class="tl-dot hot"></div>
+          <div><div class="tl-title">JSOC / SOCOM — Embedded Technical Support</div><div class="tl-body">Embedded geospatial and ML support to Tier 1 special operations units. Deployments to Central Africa. CIA training facility and Academi. TS/SCI with full scope polygraph.</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2017–22</div>
+          <div class="tl-dot hot"></div>
+          <div><div class="tl-title">Project Maven — Principal Lead · DoD Algorithmic Warfare CFT</div><div class="tl-body">Principal Lead on DoD's flagship AI/ML initiative. Computer vision at operational scale. Production ML for national security. NGA as primary GEOINT intelligence partner.</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2022</div>
+          <div class="tl-dot"></div>
+          <div><div class="tl-title">Founded BlueLens Analytics</div><div class="tl-body">Cleared small business geospatial intelligence and AI consulting practice. Robbins, NC — Fort Liberty / SOCOM corridor. Available for subcontracting, teaming, and consulting.</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <aside class="sidebar">
+    <div class="sc">
+      <div class="sc-label">Principal Analyst</div>
+      <div class="ss"><div class="ss-num">30+</div><div class="ss-label">Years Geospatial Experience</div></div>
+      <div class="ss"><div class="ss-num">11</div><div class="ss-label">Years at NGA — GS-14</div></div>
+      <div class="ss"><div class="ss-num">96%</div><div class="ss-label">Production CV Accuracy</div></div>
+      <div class="ss"><div class="ss-num">2022</div><div class="ss-label">Independent Since</div></div>
+    </div>
+
+    <div class="sc">
+      <div class="sc-label">Clearance &amp; Credentials</div>
+      <a class="sl" href="#"><div class="sl-icon">🔒</div><div class="sl-text">TS/SCI — Full Scope Poly</div></a>
+      <a class="sl" href="#"><div class="sl-icon">🗺</div><div class="sl-text">GISP — GIS Professional</div></a>
+      <a class="sl" href="#"><div class="sl-icon">🛰</div><div class="sl-text">GEOINT Professional GA-II</div></a>
+      <a class="sl" href="#"><div class="sl-icon">🎓</div><div class="sl-text">M.A. Geography — AppState</div></a>
+      <a class="sl" href="#"><div class="sl-icon">📡</div><div class="sl-text">NGA Certified Instructor</div></a>
+      <a class="sl" href="#"><div class="sl-icon">🌐</div><div class="sl-text">OSGeo Foundation Member</div></a>
+    </div>
+
+    <div class="sc">
+      <div class="sc-label">Business Status</div>
+      <a class="sl" href="#"><div class="sl-icon">✓</div><div class="sl-text">SAM.gov Registered</div></a>
+      <a class="sl" href="#"><div class="sl-icon">✓</div><div class="sl-text">Small Business Certified</div></a>
+      <a class="sl" href="#"><div class="sl-icon">✓</div><div class="sl-text">SBIR-Eligible</div></a>
+      <a class="sl" href="https://linkedin.com/in/chriscoffey2010" target="_blank"><div class="sl-icon">💼</div><div class="sl-text">LinkedIn Profile</div></a>
+    </div>
+
+    <div class="sc">
+      <div class="sc-label">For BD &amp; Contracting Teams</div>
+      <p style="font-size:0.83rem;color:var(--muted);line-height:1.75;margin-bottom:18px;">Cleared small business with senior capability and zero overhead drag. Available for subcontracting and teaming on NGA, SOCOM, and IC vehicles. CAGE code and capability statement available upon request.</p>
+      <a href="/#contact" class="btn-primary">Start the Conversation →</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="footer-logo">Blue<span>Lens</span> Analytics</div>
+  <ul class="footer-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/#contact">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 BlueLens Analytics · Christopher L. Coffey · Cleared Small Business</div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:0.07});
+  document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

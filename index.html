@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlueLens Analytics | Cleared Geospatial Intelligence & AI Consulting</title>
+  <meta name="description" content="BlueLens Analytics is a cleared small business geospatial intelligence and AI consulting firm. Project Maven Principal Lead. TS/SCI with Polygraph. Available for subcontracting, teaming, and consulting under NGA, SOCOM, and IC contract vehicles." />
+  <meta name="keywords" content="cleared small business, geospatial intelligence, GEOINT, AI consulting, subcontractor, NGA, SOCOM, JSOC, Project Maven, TS/SCI, satellite imagery, computer vision, SBIR, teaming" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:#06090f; --bg2:#0a1018; --bg3:#0e1825;
+      --accent:#1a6fff; --accent2:#0d4fd4; --hot:#ff4d1a;
+      --green:#22c55e; --dim:#304560; --muted:#7a98b8;
+      --text:#cce0f5; --white:#eef6ff;
+      --border:rgba(26,111,255,0.15); --glow:rgba(26,111,255,0.10);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:64px;background:rgba(6,9,15,0.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+    .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.1em;color:var(--white);text-decoration:none;}
+    .nav-logo span{color:var(--accent);}
+    .nav-links{display:flex;align-items:center;gap:32px;list-style:none;}
+    .nav-links a{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+    .nav-links a:hover{color:var(--white);}
+    .nav-avail{display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);border:1px solid rgba(34,197,94,0.3);padding:7px 14px;}
+    .avail-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+
+    /* HERO */
+    .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:100px 52px 80px;overflow:hidden;}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(26,111,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(26,111,255,0.04) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 90% 90% at 40% 50%,black 20%,transparent 80%);}
+    .hero-glow{position:absolute;top:-300px;left:-300px;width:900px;height:900px;background:radial-gradient(circle,rgba(26,111,255,0.07) 0%,transparent 65%);pointer-events:none;}
+    .hero-inner{position:relative;display:grid;grid-template-columns:1fr auto;gap:72px;align-items:center;width:100%;max-width:1300px;}
+
+    .hero-eyebrow{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+    .hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--accent);}
+    .hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.8rem,8.5vw,8rem);line-height:0.88;color:var(--white);margin-bottom:12px;}
+    .hero h1 .a{color:var(--accent);}
+    .hero-title-line2{font-family:'DM Mono',monospace;font-size:clamp(0.68rem,1.3vw,0.85rem);letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:36px;}
+    .hero-desc{font-size:1.05rem;color:var(--muted);max-width:600px;line-height:1.85;margin-bottom:48px;}
+    .hero-desc strong{color:var(--text);font-weight:400;}
+
+    .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+    .btn-primary{display:inline-block;background:var(--accent);color:var(--white);font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;padding:14px 28px;transition:background 0.2s,transform 0.15s;border:none;cursor:pointer;}
+    .btn-primary:hover{background:var(--accent2);transform:translateY(-2px);}
+    .btn-ghost{display:inline-block;border:1px solid var(--dim);color:var(--muted);font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;padding:14px 28px;transition:border-color 0.2s,color 0.2s;}
+    .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+    /* HERO PANEL */
+    .hero-panel{border:1px solid var(--border);background:var(--bg2);min-width:272px;}
+    .panel-hdr{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim);padding:12px 20px;border-bottom:1px solid var(--border);background:var(--bg3);}
+    .panel-stat{padding:16px 20px;border-bottom:1px solid var(--border);}
+    .panel-stat-num{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--white);line-height:1;}
+    .panel-stat-num .u{font-size:1.1rem;color:var(--accent);}
+    .panel-stat-label{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-top:3px;}
+    .panel-badge{display:flex;align-items:center;gap:10px;padding:12px 20px;border-bottom:1px solid var(--border);}
+    .panel-badge:last-child{border-bottom:none;}
+    .pb-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+    .pb-text{font-family:'DM Mono',monospace;font-size:0.59rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
+
+    /* STRIP */
+    .strip{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:15px 0;overflow:hidden;white-space:nowrap;}
+    .strip-inner{display:inline-flex;gap:52px;animation:marquee 32s linear infinite;}
+    .si{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--dim);flex-shrink:0;}
+    .si .h{color:var(--accent);}
+    @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+    /* POSITIONING SECTION */
+    .positioning{padding:100px 52px;background:var(--bg);}
+    .pos-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+
+    .sec-label{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+    .sec-label::before{content:'';width:20px;height:1px;background:var(--accent);}
+    .sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,4.5vw,3.8rem);letter-spacing:0.03em;color:var(--white);line-height:0.95;margin-bottom:20px;}
+    .sec-body{font-size:0.95rem;color:var(--muted);line-height:1.85;}
+    .sec-body p{margin-bottom:14px;}
+    .sec-body p:last-child{margin-bottom:0;}
+    .sec-body strong{color:var(--text);font-weight:400;}
+
+    /* CONTRACT VEHICLES */
+    .vehicles{display:flex;flex-direction:column;gap:12px;margin-top:8px;}
+    .vehicle-card{border:1px solid var(--border);background:var(--bg2);padding:20px 24px;transition:border-color 0.2s,background 0.2s;}
+    .vehicle-card:hover{border-color:rgba(26,111,255,0.3);background:var(--bg3);}
+    .vc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:6px;}
+    .vc-name{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--white);}
+    .vc-val{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--accent);white-space:nowrap;}
+    .vc-body{font-size:0.82rem;color:var(--muted);line-height:1.6;}
+    .vc-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);border:1px solid rgba(34,197,94,0.25);padding:2px 8px;margin-top:8px;}
+
+    /* CAPABILITIES */
+    .capabilities{padding:100px 52px;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+    .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+    .cap-card{background:var(--bg);padding:34px 28px;position:relative;overflow:hidden;transition:background 0.25s;}
+    .cap-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--accent);transition:width 0.35s ease;}
+    .cap-card:hover{background:var(--bg3);}
+    .cap-card:hover::after{width:100%;}
+    .cap-num{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.14em;color:var(--dim);margin-bottom:18px;}
+    .cap-title{font-family:'Bebas Neue',sans-serif;font-size:1.45rem;letter-spacing:0.05em;color:var(--white);margin-bottom:12px;}
+    .cap-body{font-size:0.84rem;color:var(--muted);line-height:1.75;margin-bottom:18px;}
+    .cap-tags{display:flex;flex-wrap:wrap;gap:5px;}
+    .tag{font-family:'DM Mono',monospace;font-size:0.54rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);border:1px solid var(--border);padding:3px 7px;}
+
+    /* OSS BLOCK */
+    .oss-block{padding:72px 52px;background:var(--bg);}
+    .oss-inner{border:1px solid var(--border);background:var(--bg2);padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+    .oss-kicker{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+    .oss-kicker::before{content:'';width:16px;height:1px;background:var(--green);}
+    .oss-inner h2{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;color:var(--white);line-height:1;margin-bottom:18px;}
+    .oss-inner p{font-size:0.9rem;color:var(--muted);line-height:1.85;}
+    .oss-table{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);}
+    .oss-row{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:var(--bg);}
+    .oss-label{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
+    .oss-val{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--green);}
+    .oss-val.na{color:var(--muted);}
+    .oss-val.check{color:var(--green);}
+
+    /* CONTACT */
+    .contact-section{padding:100px 52px;background:var(--bg2);border-top:1px solid var(--border);}
+    .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;}
+    .contact-form{display:flex;flex-direction:column;gap:14px;}
+    .fg{display:flex;flex-direction:column;gap:6px;}
+    .fg label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);}
+    .fg input,.fg textarea,.fg select{background:var(--bg);border:1px solid var(--border);color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.9rem;padding:11px 14px;outline:none;transition:border-color 0.2s;width:100%;}
+    .fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--accent);}
+    .fg textarea{min-height:110px;resize:vertical;}
+    .fg select option{background:var(--bg2);}
+    .contact-right{display:flex;flex-direction:column;}
+    .ci-row{display:flex;flex-direction:column;gap:4px;padding:18px 0;border-bottom:1px solid var(--border);}
+    .ci-row:first-child{padding-top:0;}
+    .ci-label{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);}
+    .ci-val{font-size:0.95rem;color:var(--text);}
+    .ci-val a{color:var(--accent);text-decoration:none;}
+    .ci-val a:hover{text-decoration:underline;}
+    .bd-box{margin-top:24px;padding:24px;border:1px solid rgba(26,111,255,0.3);background:var(--glow);}
+    .bd-label{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+    .bd-box p{font-size:0.86rem;color:var(--muted);line-height:1.75;}
+
+    footer{background:var(--bg);border-top:1px solid var(--border);padding:28px 52px;display:flex;align-items:center;justify-content:space-between;}
+    .footer-logo{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:0.08em;color:var(--muted);}
+    .footer-logo span{color:var(--accent);}
+    .footer-copy{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.1em;color:var(--dim);}
+    .footer-links{display:flex;gap:24px;list-style:none;}
+    .footer-links a{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color 0.2s;}
+    .footer-links a:hover{color:var(--accent);}
+
+    @media(max-width:1100px){.hero-inner,.pos-inner,.contact-inner,.oss-inner{grid-template-columns:1fr;}.hero-panel{display:none;}.cap-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:768px){nav{padding:0 20px;}.hero,.positioning,.capabilities,.oss-block,.contact-section{padding:60px 20px;}.cap-grid{grid-template-columns:1fr;}footer{flex-direction:column;gap:14px;text-align:center;}.nav-avail{display:none;}}
+    .fade-up{opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s ease;}
+    .fade-up.in{opacity:1;transform:none;}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Blue<span>Lens</span> Analytics</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><span class="nav-avail"><span class="avail-dot"></span>Available for Teaming</span></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner fade-up">
+    <div>
+      <p class="hero-eyebrow">Cleared Small Business · Geospatial Intelligence &amp; AI</p>
+      <h1>Blue<span class="a">Lens</span><br />Analytics</h1>
+      <p class="hero-title-line2">Project Maven Principal Lead &nbsp;·&nbsp; TS/SCI Poly &nbsp;·&nbsp; NGA 11 Years &nbsp;·&nbsp; JSOC Embedded</p>
+      <p class="hero-desc">
+        <strong>Senior geospatial AI capability available for subcontracting, teaming, and consulting.</strong>
+        BlueLens Analytics brings Project Maven-grade computer vision, multi-sensor GEOINT analysis,
+        and production ML engineering to prime contractors, defense tech firms, and IC agencies —
+        as a cleared small business partner, not overhead.
+      </p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-primary">Start a Teaming Conversation</a>
+        <a href="/about.html" class="btn-ghost">Capabilities &amp; Background →</a>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="panel-hdr">// Clearance &amp; Status</div>
+      <div class="panel-stat">
+        <div class="panel-stat-num">TS<span class="u">/SCI</span></div>
+        <div class="panel-stat-label">With Polygraph — Active</div>
+      </div>
+      <div class="panel-stat">
+        <div class="panel-stat-num">SB<span class="u"> ✓</span></div>
+        <div class="panel-stat-label">SAM.gov Registered · NAICS 541690, 541511, 541990</div>
+      </div>
+      <div class="panel-stat">
+        <div class="panel-stat-num">96<span class="u">%</span></div>
+        <div class="panel-stat-label">Production CV System Accuracy</div>
+      </div>
+      <div class="panel-hdr">// Contract Experience</div>
+      <div class="panel-badge"><span class="pb-dot"></span><span class="pb-text">Project Maven — Principal Lead</span></div>
+      <div class="panel-badge"><span class="pb-dot"></span><span class="pb-text">NGA — GS-14 · 11 Years</span></div>
+      <div class="panel-badge"><span class="pb-dot"></span><span class="pb-text">JSOC / SOCOM Embedded Support</span></div>
+      <div class="panel-badge"><span class="pb-dot"></span><span class="pb-text">AFRICOM J2 — RAF Molesworth</span></div>
+      <div class="panel-badge"><span class="pb-dot"></span><span class="pb-text">OSGeo Member · GISP · GEOINT Cert.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="strip">
+  <div class="strip-inner">
+    <span class="si">Cleared <span class="h">Small Business</span></span>
+    <span class="si"><span class="h">Project Maven</span> — Principal Lead</span>
+    <span class="si">Available for Subcontracting &amp; Teaming</span>
+    <span class="si"><span class="h">TS/SCI</span> with Polygraph</span>
+    <span class="si">NGA · SOCOM · JSOC · AFRICOM</span>
+    <span class="si">Computer Vision · SAR · Multi-Sensor Fusion</span>
+    <span class="si">500<span class="h">+</span> GB Daily Satellite Pipeline</span>
+    <span class="si">Open-Source GIS · OGC Expert · OSGeo Member</span>
+    <span class="si">NC Sandhills — Fort Liberty Corridor</span>
+    <span class="si">SBIR-Ready · SAM.gov Registered</span>
+    <span class="si">Cleared <span class="h">Small Business</span></span>
+    <span class="si"><span class="h">Project Maven</span> — Principal Lead</span>
+    <span class="si">Available for Subcontracting &amp; Teaming</span>
+    <span class="si"><span class="h">TS/SCI</span> with Polygraph</span>
+    <span class="si">NGA · SOCOM · JSOC · AFRICOM</span>
+    <span class="si">Computer Vision · SAR · Multi-Sensor Fusion</span>
+    <span class="si">500<span class="h">+</span> GB Daily Satellite Pipeline</span>
+    <span class="si">Open-Source GIS · OGC Expert · OSGeo Member</span>
+    <span class="si">NC Sandhills — Fort Liberty Corridor</span>
+    <span class="si">SBIR-Ready · SAM.gov Registered</span>
+  </div>
+</div>
+
+<!-- POSITIONING -->
+<section class="positioning">
+  <div class="pos-inner">
+    <div class="fade-up">
+      <div class="sec-label">Who We Work With</div>
+      <h2 class="sec-title">Built for<br />Primes &amp;<br />Defense Tech</h2>
+      <div class="sec-body">
+        <p>BlueLens Analytics is a cleared small business geospatial intelligence and AI firm operating in the NC Sandhills — the Fort Liberty corridor. We exist to bring senior, cleared, operationally-credentialed GEOINT and ML capability to prime contractors, IC agencies, and defense tech firms that need it without the overhead of a full-time hire.</p>
+        <p><strong>For BD and contracting teams at the primes:</strong> BlueLens Analytics is available for subcontracting and teaming on existing and future NGA, SOCOM, and IC vehicles. The principal analyst holds a TS/SCI with polygraph, 30 years of domain expertise, and direct Project Maven credentials — the kind of CV that strengthens your technical proposal and wins task orders.</p>
+        <p><strong>For defense tech firms:</strong> We provide senior geospatial AI consulting, computer vision system development, and production ML engineering on a project or retainer basis — without the friction of a permanent hire in a market where cleared senior talent is genuinely scarce.</p>
+      </div>
+    </div>
+    <div class="fade-up">
+      <div class="sec-label">Relevant Contract Vehicles</div>
+      <div class="vehicles">
+        <div class="vehicle-card">
+          <div class="vc-top">
+            <div class="vc-name">JGASS II — USSOCOM</div>
+            <div class="vc-val">$373M</div>
+          </div>
+          <div class="vc-body">CACI-held vehicle providing geospatial and imagery intelligence analysts to SOCOM, supporting operations in NC, VA, and OCONUS locations through 2029. Directly aligned with BlueLens Analytics capabilities and geographic footprint.</div>
+          <div class="vc-tag">Teaming Target — CACI Prime</div>
+        </div>
+        <div class="vehicle-card">
+          <div class="vc-top">
+            <div class="vc-name">NGA Luno A &amp; B</div>
+            <div class="vc-val">$490M</div>
+          </div>
+          <div class="vc-body">Commercial satellite imagery and GEOINT analytics for national security. Multiple primes holding vehicles including Booz Allen, CACI, BlueHalo, and NV5. AI-to-GEOINT mission directly in BlueLens Analytics' lane.</div>
+          <div class="vc-tag">Teaming Target — Multiple Primes</div>
+        </div>
+        <div class="vehicle-card">
+          <div class="vc-top">
+            <div class="vc-name">NGA BIG BAA / SBIR</div>
+            <div class="vc-val">Phase II: $1.7M</div>
+          </div>
+          <div class="vc-body">NGA is the only IC member voluntarily participating in SBIR/STTR. Unclassified program open to small businesses. Pending Senate reauthorization through 2031. BlueLens Analytics is SBIR-ready for geospatial AI topics.</div>
+          <div class="vc-tag">Direct Pursuit — Post Reauthorization</div>
+        </div>
+        <div class="vehicle-card">
+          <div class="vc-top">
+            <div class="vc-name">SOCOM SBIR / DIU</div>
+            <div class="vc-val">Open</div>
+          </div>
+          <div class="vc-body">USSOCOM maintains its own SBIR program. Defense Innovation Unit OTA vehicles provide rapid, non-traditional acquisition pathways for small businesses with demonstrated technical capability.</div>
+          <div class="vc-tag">Direct Pursuit</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="capabilities">
+  <div class="sec-label">Technical Capabilities</div>
+  <h2 class="sec-title" style="margin-bottom:16px;">What BlueLens<br />Delivers</h2>
+  <p style="font-size:0.95rem;color:var(--muted);max-width:580px;line-height:1.85;margin-bottom:56px;">Production-grade capability across the full geospatial intelligence and ML stack — built on operational experience, not slide decks.</p>
+  <div class="cap-grid">
+    <div class="cap-card fade-up">
+      <div class="cap-num">01</div>
+      <div class="cap-title">Computer Vision &amp; Deep Learning</div>
+      <p class="cap-body">Semantic segmentation, object detection, and change detection for satellite and aerial imagery. Vision Transformers, U-Net, SegFormer. 96% production accuracy on deployed systems. PyTorch and TensorFlow from training to operational inference.</p>
+      <div class="cap-tags"><span class="tag">PyTorch</span><span class="tag">ViT</span><span class="tag">Segmentation</span><span class="tag">Object Detection</span><span class="tag">OpenCV</span></div>
+    </div>
+    <div class="cap-card fade-up" style="transition-delay:.07s">
+      <div class="cap-num">02</div>
+      <div class="cap-title">Multi-Sensor GEOINT</div>
+      <p class="cap-body">SAR (Sentinel-1), optical multispectral, thermal (VIIRS/MODIS), and FMV analysis. Change detection, damage assessment, pattern-of-life, and targeting support. Multi-sensor fusion achieving 85%+ classification accuracy across 10,000+ structures in conflict environments.</p>
+      <div class="cap-tags"><span class="tag">SAR</span><span class="tag">Multispectral</span><span class="tag">FMV</span><span class="tag">Thermal</span><span class="tag">Multi-INT</span></div>
+    </div>
+    <div class="cap-card fade-up" style="transition-delay:.14s">
+      <div class="cap-num">03</div>
+      <div class="cap-title">Production MLOps</div>
+      <p class="cap-body">End-to-end satellite data pipelines processing 500+ GB daily on GCP and AWS. Automated ETL from NASA Earthdata and ESA Copernicus APIs. Detection latency reduced from 48 hours to under 6 hours. Docker, CI/CD, model monitoring, and deployment at scale.</p>
+      <div class="cap-tags"><span class="tag">GCP</span><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">CI/CD</span><span class="tag">Python</span></div>
+    </div>
+    <div class="cap-card fade-up" style="transition-delay:.21s">
+      <div class="cap-num">04</div>
+      <div class="cap-title">Open-Source GIS &amp; Cost Engineering</div>
+      <p class="cap-body">QGIS expert. OGC standards throughout. PostGIS, GeoServer, Google Earth Engine, GDAL, Rasterio, GeoPandas. OSGeo Foundation member. Organizations migrating from ESRI enterprise to open-source stacks routinely save six figures annually — without sacrificing capability. Platform-agnostic when required.</p>
+      <div class="cap-tags"><span class="tag">QGIS</span><span class="tag">PostGIS</span><span class="tag">OGC</span><span class="tag">GeoServer</span><span class="tag">GEE</span></div>
+    </div>
+    <div class="cap-card fade-up" style="transition-delay:.28s">
+      <div class="cap-num">05</div>
+      <div class="cap-title">IC Tradecraft &amp; OSINT</div>
+      <p class="cap-body">OSINT workflow automation, all-source fusion, threat assessment, and pattern recognition. IC tradecraft applied to defense, commercial, and humanitarian intelligence problems. Executive and senior DoD briefing products. NGA-certified instructor for GIS, Python, ML, and remote sensing.</p>
+      <div class="cap-tags"><span class="tag">OSINT</span><span class="tag">All-Source</span><span class="tag">Tradecraft</span><span class="tag">Pattern-of-Life</span></div>
+    </div>
+    <div class="cap-card fade-up" style="transition-delay:.35s">
+      <div class="cap-num">06</div>
+      <div class="cap-title">Enterprise GEOINT Systems</div>
+      <p class="cap-body">Led development of enterprise GEOINT platforms serving 200+ concurrent users across high-security environments — delivered six months ahead of a two-year schedule. PostgreSQL/PostGIS spatial database architecture, RESTful APIs, real-time multi-source data integration, and custom operational web interfaces.</p>
+      <div class="cap-tags"><span class="tag">PostgreSQL</span><span class="tag">PostGIS</span><span class="tag">REST API</span><span class="tag">JavaScript</span><span class="tag">Enterprise</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- OSS BLOCK -->
+<section class="oss-block">
+  <div class="oss-inner">
+    <div>
+      <div class="oss-kicker">Cost Engineering for Government Clients</div>
+      <h2>Cut the ESRI Tax.<br />Keep the Mission.</h2>
+      <p>One of the highest-value services BlueLens Analytics delivers to prime contractors and government clients is open-source GIS migration. QGIS, PostGIS, GeoServer, and the OGC ecosystem now match or exceed commercial platforms for most GEOINT workflows — at zero license cost. As an OSGeo Foundation member and QGIS expert, BlueLens Analytics designs and executes that transition. Platform-agnostic when the contract or client requires it.</p>
+    </div>
+    <div class="oss-table">
+      <div class="oss-row"><span class="oss-label">ESRI Enterprise Annual License</span><span class="oss-val">$100K+</span></div>
+      <div class="oss-row"><span class="oss-label">Open-Source Stack (QGIS + PostGIS)</span><span class="oss-val">$0</span></div>
+      <div class="oss-row"><span class="oss-label">GEOINT Capability Lost</span><span class="oss-val na">None</span></div>
+      <div class="oss-row"><span class="oss-label">OGC Compliant &amp; Platform-Agnostic</span><span class="oss-val check">✓</span></div>
+      <div class="oss-row"><span class="oss-label">OSGeo Foundation Member</span><span class="oss-val check">✓</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="sec-label">Teaming &amp; Consulting Inquiries</div>
+  <h2 class="sec-title" style="margin-bottom:16px;">Work With<br />BlueLens Analytics</h2>
+  <p style="font-size:0.95rem;color:var(--muted);max-width:580px;line-height:1.85;margin-bottom:56px;">BD teams, contracting officers, and program managers: reach out directly to discuss subcontracting arrangements, teaming agreements, or consulting engagements under existing or future vehicles.</p>
+  <div class="contact-inner">
+    <form class="contact-form" action="mailto:chris@bluelensanalytics.com" method="post" enctype="text/plain">
+      <div class="fg"><label>Name</label><input type="text" name="name" placeholder="Your name" required /></div>
+      <div class="fg"><label>Organization</label><input type="text" name="org" placeholder="Company or agency" /></div>
+      <div class="fg"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required /></div>
+      <div class="fg">
+        <label>Nature of Inquiry</label>
+        <select name="type">
+          <option value="">Select one</option>
+          <option>Subcontracting / Teaming Agreement</option>
+          <option>Task Order Support (Existing Vehicle)</option>
+          <option>SBIR / OTA Teaming</option>
+          <option>Senior Consulting Engagement</option>
+          <option>Open-Source GIS Migration</option>
+          <option>Defense Tech / Startup Engagement</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="fg"><label>Contract Vehicle or Program (if applicable)</label><input type="text" name="vehicle" placeholder="e.g., JGASS II, Luno, BIG BAA..." /></div>
+      <div class="fg"><label>Message</label><textarea name="message" placeholder="Brief description of the requirement or opportunity..."></textarea></div>
+      <button type="submit" class="btn-primary" style="text-align:left">Send Inquiry →</button>
+    </form>
+    <div class="contact-right">
+      <div class="ci-row"><div class="ci-label">Principal</div><div class="ci-val">Christopher L. Coffey</div></div>
+      <div class="ci-row"><div class="ci-label">Email</div><div class="ci-val"><a href="mailto:chris@bluelensanalytics.com">chris@bluelensanalytics.com</a></div></div>
+      <div class="ci-row"><div class="ci-label">Phone</div><div class="ci-val"><a href="tel:9109860943">910-986-0943</a></div></div>
+      <div class="ci-row"><div class="ci-label">LinkedIn</div><div class="ci-val"><a href="https://linkedin.com/in/chriscoffey2010" target="_blank">linkedin.com/in/chriscoffey2010</a></div></div>
+      <div class="ci-row"><div class="ci-label">Location</div><div class="ci-val">Robbins, NC · Moore County Sandhills<br />Fort Liberty / SOCOM Corridor</div></div>
+      <div class="ci-row"><div class="ci-label">Clearance</div><div class="ci-val">TS/SCI with Polygraph — Active</div></div>
+      <div class="ci-row"><div class="ci-label">Registration</div><div class="ci-val">SAM.gov registered · CAGE code available upon request</div></div>
+      <div class="bd-box">
+        <div class="bd-label">// Note for BD &amp; Contracting Teams</div>
+        <p>BlueLens Analytics is a lean cleared small business with senior capability and zero overhead drag. If you're a prime with a vehicle and a task order that needs Project Maven-grade GEOINT and ML expertise — or a defense tech firm that needs cleared senior analytical support without a full-time hire — this is the right conversation to have.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Blue<span>Lens</span> Analytics</div>
+  <ul class="footer-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 BlueLens Analytics · Christopher L. Coffey · Cleared Small Business</div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:0.07});
+  document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
